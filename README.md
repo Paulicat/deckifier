@@ -26,28 +26,18 @@ This only works for ArchLinux running Cinnamon DE and LightDM as display manager
 <hr>
 
 # Pre-requisites
-Before installing, make sure the `multilib` repository is enabled in /etc/pacman.conf and `nano`, `mangohud`, `lib32-mangohud` and `mangoapp` installed.
+Before installing, make sure the `multilib` repository is enabled in /etc/pacman.conf and `nano`, `mangohud` and `lib32-mangohud` installed.
 
 # Steps:
-## 1. Enable autologin on LightDM
+## 1. Add needed sudo privileges
 ```
-groupadd -r autologin
-useradd -m ${USERNAME} -G autologin
-```
-```
-echo "[Seat:*]
-autologin-user=${USERNAME}" > /etc/lightdm/lightdm.conf.d/00-autologin-user.conf
+echo deck ALL=(ALL) NOPASSWD: /usr/bin/dmidecode -t 11" > /etc/sudoers.d/steam
+echo deck ALL=(ALL) NOPASSWD: /usr/bin/gamescope-session-use-lightdm" > /etc/sudoers.d/gamescope
 ```
 
-## 2. Add needed sudo privileges
+## 2. Cloning this repo and copy files with proper permissions
 ```
-echo "${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/dmidecode -t 11" > /etc/sudoers.d/steam
-echo "${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/gamescope-session-use-lightdm" > /etc/sudoers.d/gamescope
-```
-
-## 3. Cloning this repo and copy files with proper permissions
-```
-git clone https://github.com/lostalejandro/deckifier.git && cd deckifier
+git clone https://github.com/Paulicat/deckifier.git && cd deckifier
 ```
 ```
 cp -rf rootfs/usr/* /usr
@@ -55,20 +45,11 @@ cp -rf rootfs/etc/* /etc
 chmod 777 /usr/bin/jupiter-biosupdate
 chmod 777 /usr/bin/steamos-update
 chmod 777 /usr/bin/steamos-session-select
-gio set /usr/share/applications/org.valve.gamescope.desktop metadata::trusted true
+sudo -u deck -g deck dbus-launch gio set /usr/share/applications/org.valve.gamescope.desktop metadata::trusted true 
 chmod a+x /usr/share/applications/org.valve.gamescope.desktop
 ```
 
-## 4. Go inside polkits folder and replace with your username SteamVR's Policy 
-```
-cd /usr/share/polkit-1/actions && nano org.valve.steamvr.policy
-```
-```
-At line 14 replace /home/alejandro with your username
-ctrl+O and Enter to Save
-ctrl+X to exit
-```
-## 5. Reboot and enjoy SteamOS on ArchLinux!
+## 3. Reboot and enjoy SteamOS on ArchLinux!
 ```
 reboot
 ```
