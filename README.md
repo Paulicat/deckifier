@@ -31,8 +31,8 @@ Before installing, make sure the `multilib` repository is enabled in /etc/pacman
 # Steps:
 ## 1. Add needed sudo privileges
 ```
-echo deck ALL=(ALL) NOPASSWD: /usr/bin/dmidecode -t 11" > /etc/sudoers.d/steam
-echo deck ALL=(ALL) NOPASSWD: /usr/bin/gamescope-session-use-lightdm" > /etc/sudoers.d/gamescope
+echo "deck ALL=(ALL) NOPASSWD: /usr/bin/dmidecode -t 11" > /etc/sudoers.d/steam
+echo "deck ALL=(ALL) NOPASSWD: /usr/bin/gamescope-session-use-lightdm" > /etc/sudoers.d/gamescope
 ```
 
 ## 2. Cloning this repo and copy files with proper permissions
