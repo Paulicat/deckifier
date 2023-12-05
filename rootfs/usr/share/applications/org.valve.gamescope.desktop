@@ -2,6 +2,7 @@
 Name=Game Mode
 Exec=/usr/bin/steamos-session-select
 Icon=/usr/share/icons/valve/scalable/actions/return-to-game-mode.svg
+Categories=Game
 Terminal=false
 Type=Application
 StartupNotify=false
