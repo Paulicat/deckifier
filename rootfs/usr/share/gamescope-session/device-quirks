@@ -12,6 +12,7 @@ if [[ ":$OXP_LIST:" =~ ":$SYS_ID:"  ]] || [[  ":$AOK_LIST:" =~ ":$SYS_ID:"   ]];
     export GAMESCOPECMD="/usr/bin/gamescope \
       -e \
       --generate-drm-mode fixed \
+      -w 1280 -h 800 \
       --xwayland-count 2 \
       -O *,eDP-1 \
       --default-touch-mode 4 \
@@ -20,7 +21,7 @@ if [[ ":$OXP_LIST:" =~ ":$SYS_ID:"  ]] || [[  ":$AOK_LIST:" =~ ":$SYS_ID:"   ]];
       --force-orientation left "
   fi
   # Set refresh rate range and enable refresh rate switching
-  export STEAM_DISPLAY_REFRESH_LIMITS=40,60
+  export STEAM_DISPLAY_REFRESH_LIMITS=30,60
 fi
 
 # AYANEO AIR Devices
