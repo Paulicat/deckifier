@@ -50,13 +50,13 @@ fi
 # We use "plasma" as "desktop" to hook up to SteamOS's scripts
 case "$session" in
   plasma-wayland-persistent)
-    session_launcher="cinnamon-session"
+    session_launcher="gnome-session"
   ;;
   plasma-x11-persistent)
-    session_launcher="cinnamon-session"
+    session_launcher="gnome-session"
   ;;
   desktop|plasma)
-    session_launcher="cinnamon-session-oneshot"
+    session_launcher="gnome-session-oneshot"
     create_sentinel=1
   ;;
   gamescope)
