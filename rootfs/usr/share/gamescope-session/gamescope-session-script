@@ -265,7 +265,7 @@ steamargs=("-steamos3" "-steampal" "-steamdeck" "-gamepadui")
 # steamargs+=("-steamfs")
 
 (while true; do
-	/usr/lib/hwsupport/powerbuttond
+	/usr/lib/hwsupport/power-button-handler.py
 done) &
 
 short_session_tracker_file="/tmp/steamos-short-session-tracker"
