@@ -264,15 +264,9 @@ steamargs=("-steamos3" "-steampal" "-steamdeck" "-gamepadui")
 
 # steamargs+=("-steamfs")
 
-if [[ "$(cat /sys/devices/virtual/dmi/id/product_name)" =~ "Jupiter" ]]; then
-	(while true; do
-    	/usr/lib/hwsupport/powerbuttond
-	done) &
-else
-	(while true; do
-    	/usr/lib/hwsupport/power-button-handler.py
-	done) &
-fi
+(while true; do
+	/usr/lib/hwsupport/powerbuttond
+done) &
 
 short_session_tracker_file="/tmp/steamos-short-session-tracker"
 short_session_duration=60
