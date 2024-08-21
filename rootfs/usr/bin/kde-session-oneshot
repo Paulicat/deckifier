@@ -7,7 +7,7 @@ die() { echo >&2 "!! $*"; exit 1; }
 SENTINEL_FILE="steamos-session-select"
 
 # If we proceed, execute this
-CHAINED_SESSION="/usr/bin/gnome-session"
+CHAINED_SESSION="/usr/bin/startplasma-wayland"
 # If we decide the sentinel is consumed, execute this command instead and fail
 RESTORE_SESSION=(/usr/lib/os-session-select) # No arguments restores the session
 
@@ -26,7 +26,7 @@ function check_sentinel()
     cd "$config_dir"
     sentinel_value="$(cat "$SENTINEL_FILE")"
     if [[ "$sentinel_value" == "wayland" ]]; then
-      echo "/usr/bin/gnome-session"
+      echo "/usr/bin/startplasma-wayland"
     else
       return 1
     fi

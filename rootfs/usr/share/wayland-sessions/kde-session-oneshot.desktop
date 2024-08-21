@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=KDE (single time session)
+Comment=This session logs you into GNOME one time
+Exec=/usr/bin/kde-session-oneshot
+TryExec=/usr/bin/kde-session-oneshot
+Type=Application
+DesktopNames=KDE
+X-GDM-SessionRegisters=true
